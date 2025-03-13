@@ -25,6 +25,17 @@ def post_order_traversal(david):
         post_order_traversal(david.right)
         print(david.value, end=" ")
 
+def swapthetree(root):
+    if root:
+        root.left, root.right = root.right, root.left
+        swapthetree(root.left)
+        swapthetree(root.right)
+        print(root.value, end=" ")
+
+
+
+
+
 root = TreeNode(1)
 root.left = TreeNode(2)
 root.right = TreeNode(3)
@@ -32,6 +43,9 @@ root.left.left = TreeNode(4)
 root.left.right = TreeNode(5)
 root.right.left = TreeNode(6)
 root.right.right = TreeNode(7)
+
+
+
 
 print("In order traversal:")
 in_order_traversal(root)    
@@ -41,3 +55,8 @@ pre_order_traversal(root)
 
 print("\nPost order traversal:")
 post_order_traversal(root)
+
+
+
+print("\nPost order traversal: Swapped edition")
+swapthetree(pre_order_traversal(root))
